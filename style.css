@@ -55,6 +55,29 @@ img {
   margin: 1.5rem auto 0.75rem;
 }
 
+/*
+ * The plots were exported with different canvas and font-size ratios. Keeping
+ * every bitmap at the same width therefore makes their embedded axis labels
+ * look inconsistent. These calibrated widths normalize the apparent axis-label
+ * size while still allowing every figure to shrink on narrow screens.
+ */
+figure img[src$="fig_phase_map.png"] {
+  width: min(680px, 100%);
+}
+
+figure img[src$="homo_demo.png"] {
+  width: min(500px, 100%);
+}
+
+figure img[src$="fig_congestion_comparative_statics.png"],
+figure img[src$="fig_empirical_validation.png"] {
+  width: min(880px, 100%);
+}
+
+figure img[src$="hetero_R_grad_p10.png"] {
+  width: min(450px, 100%);
+}
+
 ul {
   padding-left: 1.35rem;
 }

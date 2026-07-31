@@ -1,0 +1,139 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="55%" stop-color="#fffaf2"/>
+      <stop offset="100%" stop-color="#f9f7ff"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8cc7ff"/>
+      <stop offset="100%" stop-color="#3576d4"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffc98a"/>
+      <stop offset="100%" stop-color="#f28a2e"/>
+    </linearGradient>
+    <linearGradient id="purple" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c8b5ff"/>
+      <stop offset="100%" stop-color="#7658d8"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b9edcf"/>
+      <stop offset="100%" stop-color="#37a66b"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#2d3748" flood-opacity="0.16"/>
+    </filter>
+    <marker id="arrow" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L14,8 L2,14 Z" fill="#34495e"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M2,2 L14,8 L2,14 Z" fill="#3576d4"/>
+    </marker>
+    <style>
+      .title { font: 700 46px Inter, Arial, sans-serif; fill: #14213d; }
+      .subtitle { font: 400 24px Inter, Arial, sans-serif; fill: #455a74; }
+      .panel-title { font: 700 26px Inter, Arial, sans-serif; fill: #1f2937; }
+      .label { font: 600 21px Inter, Arial, sans-serif; fill: #1f2937; }
+      .text { font: 400 18px Inter, Arial, sans-serif; fill: #334155; }
+      .small { font: 400 15px Inter, Arial, sans-serif; fill: #475569; }
+      .note { font: 700 18px Inter, Arial, sans-serif; fill: #1e293b; }
+      .bottom-title { font: 700 22px Inter, Arial, sans-serif; fill: #ffffff; }
+      .bottom-text { font: 400 18px Inter, Arial, sans-serif; fill: #f8fafc; }
+      .formula { font: 600 22px Inter, Arial, sans-serif; fill: #14213d; }
+      .axis { stroke: #64748b; stroke-width: 3; }
+      .curve { fill: none; stroke: #3576d4; stroke-width: 5; stroke-linecap: round; }
+      .curve2 { fill: none; stroke: #f28a2e; stroke-width: 5; stroke-linecap: round; }
+      .curve3 { fill: none; stroke: #7658d8; stroke-width: 5; stroke-linecap: round; }
+      .dash { stroke-dasharray: 10 9; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+
+  <text x="80" y="82" class="title">Personalization improves LLMs — but crowds the GPU</text>
+  <text x="80" y="122" class="subtitle">Users choose between lightweight ICL and compute-heavy SFT; those private choices create a congestion externality.</text>
+
+  <!-- Panels -->
+  <rect x="70" y="170" width="450" height="480" rx="34" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="575" y="170" width="450" height="480" rx="34" fill="#ffffff" filter="url(#shadow)"/>
+  <rect x="1080" y="170" width="450" height="480" rx="34" fill="#ffffff" filter="url(#shadow)"/>
+
+  <text x="105" y="220" class="panel-title">1. Personalization choice</text>
+  <text x="610" y="220" class="panel-title">2. Shared compute equilibrium</text>
+  <text x="1115" y="220" class="panel-title">3. Platform strategy</text>
+
+  <!-- Left panel contents -->
+  <rect x="105" y="260" width="160" height="78" rx="22" fill="#eef6ff" stroke="#7bb6f3" stroke-width="3"/>
+  <text x="135" y="294" class="label">ICL</text>
+  <text x="135" y="322" class="small">prompt examples</text>
+
+  <rect x="325" y="260" width="160" height="78" rx="22" fill="#fff4e6" stroke="#f4a24b" stroke-width="3"/>
+  <text x="355" y="294" class="label">SFT</text>
+  <text x="355" y="322" class="small">parameter update</text>
+
+  <path d="M185 348 C185 395, 185 410, 185 452" stroke="#3576d4" stroke-width="5" marker-end="url(#arrowBlue)" fill="none"/>
+  <path d="M405 348 C405 395, 405 410, 405 452" stroke="#f28a2e" stroke-width="5" marker-end="url(#arrow)" fill="none"/>
+
+  <rect x="105" y="455" width="160" height="88" rx="20" fill="#eef6ff"/>
+  <text x="130" y="488" class="text">cheap</text>
+  <text x="130" y="516" class="text">but limited by</text>
+  <text x="130" y="540" class="text">pretraining</text>
+
+  <rect x="325" y="455" width="160" height="88" rx="20" fill="#fff4e6"/>
+  <text x="350" y="488" class="text">costly</text>
+  <text x="350" y="516" class="text">but can learn</text>
+  <text x="350" y="540" class="text">new directions</text>
+
+  <rect x="110" y="575" width="372" height="42" rx="21" fill="#f1f5f9"/>
+  <text x="126" y="602" class="note">Winner depends on: coverage × data SNR</text>
+
+  <!-- Middle panel contents -->
+  <circle cx="800" cy="355" r="83" fill="url(#purple)" opacity="0.95"/>
+  <text x="750" y="340" class="label" fill="#fff">GPU</text>
+  <text x="737" y="372" class="label" fill="#fff">cluster</text>
+  <text x="708" y="410" class="small" fill="#fff">aggregate load R*</text>
+
+  <!-- users icons -->
+  <g opacity="0.95">
+    <circle cx="650" cy="300" r="22" fill="#8cc7ff"/><rect x="630" y="326" width="40" height="54" rx="14" fill="#8cc7ff"/>
+    <circle cx="705" cy="250" r="22" fill="#ffc98a"/><rect x="685" y="276" width="40" height="54" rx="14" fill="#ffc98a"/>
+    <circle cx="895" cy="250" r="22" fill="#b9edcf"/><rect x="875" y="276" width="40" height="54" rx="14" fill="#b9edcf"/>
+    <circle cx="950" cy="300" r="22" fill="#c8b5ff"/><rect x="930" y="326" width="40" height="54" rx="14" fill="#c8b5ff"/>
+  </g>
+  <path d="M680 338 C705 350, 725 356, 750 360" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)" fill="none"/>
+  <path d="M728 304 C745 322, 757 334, 770 345" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)" fill="none"/>
+  <path d="M870 345 C850 355, 835 360, 817 363" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)" fill="none"/>
+  <path d="M923 338 C895 352, 872 359, 850 364" stroke="#64748b" stroke-width="4" marker-end="url(#arrow)" fill="none"/>
+
+  <rect x="620" y="505" width="360" height="76" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="645" y="536" class="formula">cost ≈ error + compute × wait</text>
+  <text x="645" y="563" class="small">private personalization choices feed back into everyone’s latency</text>
+
+  <!-- Right panel contents -->
+  <line x1="1140" y1="515" x2="1480" y2="515" class="axis"/>
+  <line x1="1140" y1="515" x2="1140" y2="265" class="axis"/>
+  <text x="1132" y="548" class="small">low</text>
+  <text x="1452" y="548" class="small">high</text>
+  <text x="1232" y="575" class="small">pretraining coverage / task SNR</text>
+  <text x="1095" y="268" class="small" transform="rotate(-90 1095 268)">resource demand</text>
+
+  <path d="M1165 486 C1220 435, 1260 410, 1305 422 C1350 435, 1390 330, 1460 295" class="curve"/>
+  <path d="M1165 430 C1220 420, 1280 460, 1325 380 C1370 310, 1418 330, 1460 340" class="curve2 dash"/>
+  <text x="1170" y="315" class="text">Congestion can be</text>
+  <text x="1170" y="343" class="text">non-monotone</text>
+  <text x="1170" y="371" class="small">better coverage can raise load</text>
+
+  <rect x="1120" y="595" width="365" height="42" rx="21" fill="#ecfdf5"/>
+  <text x="1139" y="622" class="note">Offer both ICL + SFT: profit not lower</text>
+
+  <!-- connectors -->
+  <path d="M520 410 C545 410, 550 410, 575 410" stroke="#334155" stroke-width="5" marker-end="url(#arrow)" fill="none"/>
+  <path d="M1025 410 C1050 410, 1055 410, 1080 410" stroke="#334155" stroke-width="5" marker-end="url(#arrow)" fill="none"/>
+
+  <!-- Bottom takeaway ribbon -->
+  <rect x="90" y="705" width="1420" height="118" rx="34" fill="#14213d" filter="url(#shadow)"/>
+  <text x="130" y="748" class="bottom-title">Main message</text>
+  <text x="130" y="790" class="bottom-text">LLM personalization is not only a statistical problem. It is a market design problem: algorithm choice determines compute demand,</text>
+  <text x="130" y="820" class="bottom-text">compute demand determines congestion, and congestion feeds back into which personalization method users choose.</text>
+</svg>

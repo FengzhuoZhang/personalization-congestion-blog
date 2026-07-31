@@ -25,7 +25,7 @@
 <p>Authors: Fengzhuo Zhang, Zhuoran Yang, Dirk Bergemann</p>
 </blockquote>
 <figure>
-<img src="./teaser_personalization_congestion.png" alt="" /><figcaption>Teaser figure</figcaption>
+<img src="./teaser_personalization_congestion.png" alt="" />
 </figure>
 <p><strong>Figure 1. Teaser map of the project.</strong> LLM personalization across many users forms a closed loop: users choose whether lightweight In-Context Learning (ICL) or compute-intensive Supervised Fine-Tuning (SFT) is <span style="color:#9A7A5A; font-weight:700;">attractive</span>, based on the pretrained model, their desired task, and prevailing GPU congestion. These individual choices aggregate into shared GPU <span style="color:#657D9A; font-weight:700;">congestion</span>, which in turn feeds back into the cost of personalization. Our contribution is to model this full loop: statistical <span style="color:#657D9A; font-weight:700;">personalization quality</span>, equilibrium compute demand, and algorithm menus.</p>
 <h2 id="tldr">TL;DR</h2>
@@ -80,7 +80,7 @@
 <p>The comparison between SFT and ICL is governed by two ideas: <span style="color:#657D9A; font-weight:700;">pretraining coverage</span> and the <span style="color:#657D9A; font-weight:700;">signal quality</span> of the user’s data. Coverage asks how much of the downstream task the pretrained model already represents. Signal quality asks whether the user’s examples are informative enough to teach the model what pretraining missed.</p>
 <p>The paper derives a clear threshold rule. SFT is preferred when coverage and data quality make it worthwhile to learn beyond the pretrained model. ICL is preferred when the uncovered parts of the task are too noisy to estimate reliably. Put simply: <span style="color:#9A7A5A; font-weight:700;">SFT is more adventurous, while ICL is more conservative</span>.</p>
 <figure>
-<img src="./blog_figures/fig_phase_map.png" alt="" /><figcaption>SFT–ICL phase map</figcaption>
+<img src="./blog_figures/fig_phase_map.png" alt="" />
 </figure>
 <p><strong>Figure 2. SFT–ICL phase diagram.</strong> SFT is favored by high pretraining coverage and high data quality; ICL is favored when the uncovered directions are noisy and insufficiently supported by personalization data.</p>
 <blockquote>
@@ -122,7 +122,7 @@ R^\star=R(\pi^\star).
 <p>This creates an <span style="color:#657D9A; font-weight:700;">algorithm-separation threshold</span>. Below it, compute is cheap enough that users prefer SFT. Above it, they switch to the lighter ICL option. The equilibrium sits where the method users choose, the compute they consume, and the congestion they collectively create are mutually consistent.</p>
 <p>Intuitively, high effective compute costs favor ICL, while low costs make SFT’s additional statistical gains worth paying for. The equilibrium balances <span style="color:#9A7A5A; font-weight:700;">better personalization against greater resource use</span>.</p>
 <figure>
-<img src="./blog_figures/homo_demo.png" alt="" /><figcaption>Equilibrium mechanism</figcaption>
+<img src="./blog_figures/homo_demo.png" alt="" />
 </figure>
 <p><strong>Figure 3. Equilibrium mechanism.</strong> Low congestion makes SFT attractive; high congestion pushes users toward ICL. The equilibrium is the intersection where induced compute demand is consistent with the congestion cost users face.</p>
 <p>Next, we ask how equilibrium congestion changes with the model’s key inputs. A natural guess is that better pretrained models should reduce personalization demand. Our model shows that this intuition is only partly correct.</p>
@@ -130,7 +130,7 @@ R^\star=R(\pi^\star).
 <p><span style="color:#657D9A; font-weight:700;">Broader pretraining coverage</span> can increase congestion, but not monotonically. When compute is cheap, expanding coverage makes more task directions worth personalizing, so users may use more samples or switch toward SFT. At intermediate coverage, <span style="color:#9A7A5A; font-weight:700;">switching between ICL and SFT can reduce aggregate demand</span>. At high coverage, personalization becomes productive across a broader space, so users scale up again. Congestion can therefore rise, fall, and rise again as coverage expands, as Figure 4(b) shows.</p>
 <p>The same mechanism appears with task noise and SFT’s resource intensity, shown in Figure 4(c) and (d). When noise is moderate, users may spend more compute to compensate. When noise becomes too large, personalization is no longer worth it, and demand falls. Similarly, making SFT more resource-intensive can initially raise congestion before eventually pushing users toward ICL.</p>
 <figure>
-<img src="./blog_figures/fig_congestion_comparative_statics.png" alt="" /><figcaption>Congestion comparative statics</figcaption>
+<img src="./blog_figures/fig_congestion_comparative_statics.png" alt="" />
 </figure>
 <p><strong>Figure 4. Non-monotone congestion responses.</strong> Equilibrium congestion decreases with prior precision, but can respond non-monotonically to pretraining coverage, personalization noise, and SFT’s relative resource intensity. The source is the interaction between how much users personalize and which method they choose.</p>
 <p>The practical lesson is that serving load is <span style="color:#657D9A; font-weight:700;">not a simple proxy</span> for model quality. A better pretrained model may reduce load by making personalization unnecessary, or increase load by making personalization more productive.</p>
@@ -142,7 +142,7 @@ R^\star=R(\pi^\star).
 <p>This creates a phenomenon we call <span style="color:#657D9A; font-weight:700;">anchoring</span>. The equilibrium congestion level can be <span style="color:#9A7A5A; font-weight:700;">pinned</span> by a marginal user type. Small changes in another group’s data quality or population share may leave total congestion unchanged, because the marginal type absorbs the change by adjusting how often it chooses ICL rather than SFT.</p>
 <p>In the flat region shown below, congestion is anchored by the second user type. Changes in the first group’s noise or population share do not move aggregate load. Economically, flat demand does not necessarily mean users are <span style="color:#9A7A5A; font-weight:700;">insensitive</span>; it may mean the system is sitting at a switching threshold.</p>
 <figure>
-<img src="./blog_figures/hetero_R_grad_p10.png" alt="" /><figcaption>Pinned equilibria with heterogeneous users</figcaption>
+<img src="./blog_figures/hetero_R_grad_p10.png" alt="" />
 </figure>
 <p><strong>Figure 5. Pinned equilibria with heterogeneous users.</strong> The dark region marks combinations of the first group’s population share and noise level for which equilibrium congestion is locally flat. In this region, aggregate load is pinned by the marginal switching type.</p>
 <blockquote>
@@ -167,7 +167,7 @@ R^\star=R(\pi^\star).
 <li>Across 21 major AI platforms, the share offering SFT rises from 9.5% in 2021 to 71.4% in 2025.</li>
 </ul>
 <figure>
-<img src="./blog_figures/fig_empirical_validation.png" alt="" /><figcaption>Empirical validation</figcaption>
+<img src="./blog_figures/fig_empirical_validation.png" alt="" />
 </figure>
 <p><strong>Figure 6. Empirical validation.</strong> The GPT-2 experiments reproduce the theory’s statistical predictions: ICL has an uncovered-dimension bias floor, while SFT improves with sufficient data. The platform evidence is consistent with the menu-design result that offering both ICL and SFT is profit-safe.</p>
 <blockquote>
